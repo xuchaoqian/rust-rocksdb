@@ -907,7 +907,7 @@ impl Options {
 
     /// by default target_file_size_multiplier is 1,
     /// so files in all L1..Lmax levels are equal.
-    pub fn set_target_file_size_multiplier(&mut self, mul: f64) {
+    pub fn set_target_file_size_multiplier(&mut self, mul: i32) {
         unsafe {
             ffi::rocksdb_options_set_target_file_size_multiplier(self.inner, mul);
         }
