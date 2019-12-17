@@ -905,6 +905,14 @@ impl Options {
         }
     }
 
+    /// by default target_file_size_multiplier is 1,
+    /// so files in all L1..Lmax levels are equal.
+    pub fn set_target_file_size_multiplier(&mut self, mul: f64) {
+        unsafe {
+            ffi::rocksdb_options_set_target_file_size_multiplier(self.inner, mul);
+        }
+    }
+
     /// Sets the minimum number of write buffers that will be merged together
     /// before writing to storage.  If set to `1`, then
     /// all write buffers are flushed to L0 as individual files and this increases
